@@ -14,8 +14,7 @@ jobs:
           yarn run build
 
       - name: Deploy 🚀
-        uses: 'uh'
+        uses: 'G9000/Vue-sentry/actions'
         with:
           branch: master # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
-
