@@ -8,12 +8,11 @@ const app = createApp(App);
 console.log(process.env.NODE_ENV + 'START');
 
 if (process.env.NODE_ENV !== 'development') {
-  console.log('sentry start');
   Sentry.init({
     app,
-    environment: 'testing',
+    environment: process.env.NODE_ENV,
     dsn: import.meta.env.VITE_SENTRY_DSN as string,
-    release: `Test-2.0 ${process.env.NODE_ENV}`,
+    release: `Test-2.1 ${process.env.NODE_ENV}`,
     integrations: [
       new Integrations.BrowserTracing({
         routingInstrumentation: Sentry.vueRouterInstrumentation(router),

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { addExtensionMethods } from '@sentry/tracing';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import axios from 'axios';
 
 interface dataType {
@@ -37,15 +36,15 @@ async function fetchApi() {
     <p v-if="data">
     <div>
       Word of the day:
-      <span style="font-weight: bold">{{ data ? data.word : '' }}</span>
+      <span style="font-weight: bold">{{data.word}}</span>
     </div>
     <div>
       Definition:
-      <span style="font-weight: bold">{{ data ? data.definition : '' }}</span>
+      <span style="font-weight: bold">{{data.definition}}</span>
     </div>
     <div>
       Pronunciation:
-      <span style="font-weight: bold">{{ data ? data.pronunciation : '' }}</span>
+      <span style="font-weight: bold">{{data.pronunciation}}</span>
     </div>
     </p>
   </div>
