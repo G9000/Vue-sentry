@@ -10,6 +10,7 @@
     "@sentry/tracing": "^6.17.2",
     "@sentry/vue": "^6.17.2",
     "axios": "^0.25.0",
+    "vite-plugin-sentry": "^1.0.12",
     "vue": "^3.2.25",
     "vue-router": "4"
   },
