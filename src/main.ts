@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== 'development') {
     app,
     environment: 'testing',
     dsn: import.meta.env.VITE_SENTRY_DSN as string,
-    release: `Test-1.0 ${process.env.NODE_ENV}`,
+    release: `Test-2.0 ${process.env.NODE_ENV}`,
     integrations: [
       new Integrations.BrowserTracing({
         routingInstrumentation: Sentry.vueRouterInstrumentation(router),
