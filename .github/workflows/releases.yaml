@@ -1,27 +1,48 @@
-name: Release
+# name: Release
+
+# on:
+#   push:
+#     tags:
+#       - 'v*'
+
+# jobs:
+#   release:
+#     - name: 'Releases'
+#       runs-on: 'ubuntu-latest'
+#       steps:
+#       uses: 'marvinpinto/action-automatic-releases@latest'
+#       with:
+#         repo_token: '${{ secrets.GITHUB_TOKEN }}'
+#         prerelease: false
+#         files: |
+#           LICENSE.txt
+#           *.jar
+#     - name: Sentry Release
+#       uses: getsentry/action-release@v1.0.0
+#       env:
+#         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+#         SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+#         SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+#       with:
+#         environment: production
+
+
+name: Deploy
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ master ]
 
 jobs:
-  release:
-    name: 'Releases'
-      runs-on: 'ubuntu-latest'
-      steps:
-      uses: 'marvinpinto/action-automatic-releases@latest'
-      with:
-        repo_token: '${{ secrets.GITHUB_TOKEN }}'
-        prerelease: false
-        files: |
-          LICENSE.txt
-          *.jar
-    name: Sentry Release
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Sentry Release
       uses: getsentry/action-release@v1.0.0
       env:
-        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-        SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+	      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+	      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+	      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       with:
-        environment: production
+        environment: productio
