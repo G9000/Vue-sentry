@@ -1,48 +1,22 @@
-# name: Release
-
-# on:
-#   push:
-#     tags:
-#       - 'v*'
-
-# jobs:
-#   release:
-#     - name: 'Releases'
-#       runs-on: 'ubuntu-latest'
-#       steps:
-#       uses: 'marvinpinto/action-automatic-releases@latest'
-#       with:
-#         repo_token: '${{ secrets.GITHUB_TOKEN }}'
-#         prerelease: false
-#         files: |
-#           LICENSE.txt
-#           *.jar
-#     - name: Sentry Release
-#       uses: getsentry/action-release@v1.0.0
-#       env:
-#         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-#         SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-#         SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-#       with:
-#         environment: production
-
-
-name: Deploy
-
-on:
+name: 'test'
+on: # rebuild any PRs and main branch changes
+  pull_request:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - 'releases/*'
 
 jobs:
-  deploy:
+  test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Sentry Release
-      uses: getsentry/action-release@v1.0.0
-      env:
-	      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-	      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-	      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-      with:
-        environment: production
+      - uses: actions/checkout@v2
+      - name: Create Sentry release
+        uses: ./
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          MOCK: true
+        with:
+          environment: production
