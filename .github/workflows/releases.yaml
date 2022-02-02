@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    - name: 'Releases'
+    name: 'Releases'
       runs-on: 'ubuntu-latest'
       steps:
       uses: 'marvinpinto/action-automatic-releases@latest'
@@ -17,7 +17,7 @@ jobs:
         files: |
           LICENSE.txt
           *.jar
-    - name: Sentry Release
+    name: Sentry Release
       uses: getsentry/action-release@v1.0.0
       env:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
