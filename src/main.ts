@@ -5,7 +5,6 @@ import * as Sentry from '@sentry/vue';
 import { Integrations } from '@sentry/tracing';
 
 const app = createApp(App);
-console.log(process.env.NODE_ENV + 'START');
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
