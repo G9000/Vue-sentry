@@ -13,7 +13,7 @@ jobs:
       - name: Create Sentry release
         uses: getsentry/action-release@v1
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_AUTH_TOKEN: '35d7969ad5a7433190a4f20903e67e44afe18c23de0e467ea965decec410ffee'
           SENTRY_ORG: 'julio-test-9000'
           SENTRY_PROJECT: 'julio-test-9000'
           MOCK: true
