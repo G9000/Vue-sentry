@@ -17,5 +17,3 @@ jobs:
           SENTRY_ORG: '/julio-test-9000'
           SENTRY_PROJECT: '/julio-test-9000'
           MOCK: true
-        with:
-          environment: production
