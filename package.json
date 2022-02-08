@@ -9,8 +9,8 @@
   "dependencies": {
     "@eclass/semantic-release-sentry-releases": "^2.11.0",
     "@sentry/cli": "^1.72.1",
-    "@sentry/tracing": "^6.17.2",
-    "@sentry/vue": "^6.17.2",
+    "@sentry/tracing": "^6.17.5",
+    "@sentry/vue": "^6.17.5",
     "axios": "^0.25.0",
     "vite-plugin-sentry": "^1.0.12",
     "vue": "^3.2.25",
