@@ -32,7 +32,7 @@ async function fetchApi() {
   <button @click="throwError">Throw error</button>
   <button @click="fetchApi">{{data? 'Get a new one' : 'Get word of the day'}}</button>
   <div>
-    <p>{{ data ? '' : '😢 Nothing here at the moment' }}</p>
+    <p>{{ data ? '' : '😢 Nothing here at the moment. Just to enable stuff!' }}</p>
     <p v-if="data">
     <div>
       Word of the day:
