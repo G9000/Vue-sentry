@@ -1,11 +1,13 @@
 {
   "name": "vue-playground",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "release": "standard-version"
+    "release": "standard-version",
+    "release:tags": "git push --follow-tags origin master",
+    "postrelease": "npm run release:tags"
   },
   "dependencies": {
     "@eclass/semantic-release-sentry-releases": "^2.11.0",
