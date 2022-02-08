@@ -15,7 +15,7 @@ function throwError() {
 }
 
 async function fetchApi() {
-  axios.get('https://random-words-api.vercel.app/wor')
+  axios.get('https://random-words-api.vercel.app/word')
   .catch((err) => {
     console.error('Something wrong with the api')
     throw new Error(err)
